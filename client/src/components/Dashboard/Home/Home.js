@@ -1,7 +1,12 @@
+// Custom components
+import QuoteSection from './QuoteSection/QuoteSection';
+
 import './Home.css';
 
-const Home = () => {
-	return <div className="Home">Home Page</div>;
-};
+const Home = () => (
+    <div className="Home">
+        <QuoteSection />
+    </div>
+)
 
 export default Home;
