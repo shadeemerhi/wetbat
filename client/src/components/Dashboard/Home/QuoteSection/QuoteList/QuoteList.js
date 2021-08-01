@@ -1,9 +1,20 @@
-const QuoteList = () => {
-    return (
-        <div>
-            <p>Quote List</p>
-        </div>
-    )
-}
+import { useContext } from 'react';
 
-export default QuoteList
+// Contexts
+import { QuoteContext } from '../../../../../contexts/QuoteContext';
+
+const QuoteList = () => {
+	const {
+		quoteState,
+		dispatch
+	} = useContext(QuoteContext);
+
+	console.log('HERE IS STATE IN QUOTE LIST', quoteState);
+	return (
+		<div>
+			<p>Quote List</p>
+		</div>
+	);
+};
+
+export default QuoteList;

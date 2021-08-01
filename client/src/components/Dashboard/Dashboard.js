@@ -1,3 +1,4 @@
+import { useContext } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 // Custom components
@@ -13,6 +14,7 @@ import './Dashboard.css';
 const Dashboard = () => {
 	return (
 		<Router>
+
 			<Grid container>
 				<Grid item xs={2}>
 					<SideNav />
