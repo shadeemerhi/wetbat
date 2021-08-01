@@ -1,5 +1,30 @@
 .SideNav {
     display: flex;
     flex-direction: column;
-    border: 1px solid blue;
+    background-color: rgb(233, 233, 233);
+    height: 300px;
+}
+
+.SideNavItem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+}
+
+.SideNavItem:hover {
+    background-color: rgb(216, 216, 216);
+}
+
+.SideNavItemLink {
+    color: #5F6CAF;
+    text-decoration: none;
+}
+
+.SideNavItemLink :visited {
+    color: #5F6CAF;
+}
+
+.SideNavItemLinkIcon {
+    margin-right: 10px;
 }

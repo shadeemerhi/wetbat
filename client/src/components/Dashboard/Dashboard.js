@@ -14,10 +14,10 @@ const Dashboard = () => {
 	return (
 		<Router>
 			<Grid container>
-				<Grid item xs={3}>
+				<Grid item xs={2}>
 					<SideNav />
 				</Grid>
-				<Grid item xs={9}>
+				<Grid item xs={10}>
 					<Switch>
 						<Route path="/" component={Home} />
 					</Switch>
