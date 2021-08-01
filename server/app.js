@@ -1,18 +1,17 @@
 const createError = require('http-errors');
 const express = require('express');
-const cors = require('cors');
 require('dotenv').config();
 
+// Express instance
 const app = express();
 
+// Express configuration
 const { json, urlencoded } = express;
 app.use(json());
 app.use(urlencoded({ extended: false }));
 
-// Define routes
-app.get('/test', (req, res) => {
-	res.json({ message: 'YOUR APP IS CONNECTED TO THE BACKEND' });
-});
+// Route registration
+app.use('/api', require('./routes'));
 
 app.use(function (req, res, next) {
 	next(createError(404));
