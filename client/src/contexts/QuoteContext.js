@@ -1,28 +1,33 @@
-import React, { useReducer } from 'react';
+import React, { useEffect, useReducer } from 'react';
+import axios from 'axios';
 
 export const QuoteContext = React.createContext();
 
 // Action creators
-export const setQuotes = (quotes) => ({
+export const setQuotes = quotes => ({
 	type: 'SET_QUOTES',
 	quotes
 });
 
-export const selectQuote = (quote) => ({
+export const selectQuote = quote => ({
 	type: 'SET_SELECTED',
 	quote
-})
+});
 
-export const addQuote = (quote) => ({
+export const addQuote = quote => ({
 	type: 'ADD_QUOTE',
 	quote
 });
 
-export const deleteQuote = (index) => ({
+export const deleteQuote = index => ({
 	type: 'DELETE_QUOTE',
 	index
 });
 
+export const quoteError = text => ({
+	type: 'SET_ERROR',
+	text
+});
 
 export const QuoteProvider = ({ children }) => {
 	const quoteReducer = (state, action) => {
@@ -31,19 +36,24 @@ export const QuoteProvider = ({ children }) => {
 				return {
 					...state,
 					quotes: action.quotes
-				}
+				};
 			case 'SET_SELECTED':
 				return {
 					...state,
 					selectedQuote: action.quote
-				}
+				};
 			case 'ADD_QUOTE':
 				return {
 					...state,
 					quotes: [...state.quotes, action.quote]
-				}
+				};
 			case 'DELETE_QUOTE':
 				return state;
+			case 'SET_ERROR':
+				return {
+					...state,
+					error: action.error
+				};
 			default:
 				return state;
 		}
@@ -51,15 +61,32 @@ export const QuoteProvider = ({ children }) => {
 
 	const initialState = {
 		quotes: [],
-		selectedQuote: null
-	}
+		selectedQuote: null,
+		error: ''
+	};
 
-	const [quotes, dispatch] = useReducer(quoteReducer, initialState);
+	const [quoteState, dispatch] = useReducer(quoteReducer, initialState);
+
+	useEffect(() => {
+		const getInitialQuotes = async () => {
+			try {
+				const { data } = await axios.get('/api/quotes');
+				console.log('AFTER THE API', data);
+
+				if (data.quotes) {
+					dispatch(setQuotes(data.quotes));
+				}
+			} catch (error) {
+				dispatch(quoteError(error.message));
+			}
+		};
+		getInitialQuotes();
+	}, []);
 
 	return (
 		<QuoteContext.Provider
 			value={{
-				quotes,
+				quoteState,
 				dispatch
 			}}
 		>
