@@ -6,6 +6,11 @@ export const QuoteContext = React.createContext();
 export const setQuotes = (quotes) => ({
 	type: 'SET_QUOTES',
 	quotes
+});
+
+export const selectQuote = (quote) => ({
+	type: 'SET_SELECTED',
+	quote
 })
 
 export const addQuote = (quote) => ({
@@ -23,9 +28,20 @@ export const QuoteProvider = ({ children }) => {
 	const quoteReducer = (state, action) => {
 		switch (action.type) {
 			case 'SET_QUOTES':
-				return state;
+				return {
+					...state,
+					quotes: action.quotes
+				}
+			case 'SET_SELECTED':
+				return {
+					...state,
+					selectedQuote: action.quote
+				}
 			case 'ADD_QUOTE':
-				return state;
+				return {
+					...state,
+					quotes: [...state.quotes, action.quote]
+				}
 			case 'DELETE_QUOTE':
 				return state;
 			default:
@@ -34,7 +50,8 @@ export const QuoteProvider = ({ children }) => {
 	};
 
 	const initialState = {
-		quotes: []
+		quotes: [],
+		selectedQuote: null
 	}
 
 	const [quotes, dispatch] = useReducer(quoteReducer, initialState);
