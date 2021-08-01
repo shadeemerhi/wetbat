@@ -33,7 +33,11 @@ export const QuoteProvider = ({ children }) => {
 		}
 	};
 
-	const [quotes, dispatch] = useReducer(quoteReducer, []);
+	const initialState = {
+		quotes: []
+	}
+
+	const [quotes, dispatch] = useReducer(quoteReducer, initialState);
 
 	return (
 		<QuoteContext.Provider
