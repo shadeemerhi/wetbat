@@ -1,0 +1,15 @@
+.QuoteSectionItemHeader {
+    display: flex;
+    align-items: center;
+}
+
+.Icon {
+    margin-right: 10px;
+    color: #5BBFBA;
+}
+
+.Text {
+    font-weight: 400;
+    color: #5F6CAF;
+    margin: 0;
+}
