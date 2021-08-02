@@ -16,6 +16,14 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING
       },
+      departure_datetime: {
+        allowNull: false,
+        type: Sequelize.DATE
+      },
+      destination_datetime: {
+        allowNull: false,
+        type: Sequelize.DATE
+      },
       travellers: {
         allowNull: false,
         type: Sequelize.INTEGER

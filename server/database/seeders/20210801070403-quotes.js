@@ -4,6 +4,8 @@ module.exports = {
     await queryInterface.bulkInsert('Quotes', [{
       departure_location: 'Vancouver',
       destination_location: 'Calgary',
+	  departure_datetime: new Date('August 9, 2021 03:30:00'),
+	  destination_datetime: new Date('August 9, 2021 04:55:00'),
       travellers: 4,
       transporation_type: 'Rental Car',
       name: 'Shadee Merhi',
