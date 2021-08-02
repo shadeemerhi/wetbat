@@ -11,7 +11,8 @@ module.exports = {
 					destination_datetime: new Date('August 9, 2021 04:55:00'),
 					travellers: 4,
 					transporation_type: 'Rental Car',
-					name: 'Shadee Merhi',
+					client_name: 'Shadee Merhi',
+					client_email: 'shadee@gmail.com',
 					price: 377.77,
 					createdAt: new Date(),
 					updatedAt: new Date()
@@ -21,9 +22,10 @@ module.exports = {
 					destination_location: 'Montreal',
 					departure_datetime: new Date('November 12, 2021 13:37:00'),
 					destination_datetime: new Date('November 12, 2021 15:55:00'),
-					travellers: 4,
+					travellers: 7,
 					transporation_type: 'Rental Car',
-					name: 'Emily Jones',
+					client_name: 'Emily Jones',
+					client_email: 'email@gmail.com',
 					price: 1201.22,
 					createdAt: new Date(),
 					updatedAt: new Date()

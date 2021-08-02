@@ -6,7 +6,8 @@ module.exports = (sequelize, DataTypes) => {
     destination_datetime: DataTypes.DATE,
     travellers: DataTypes.INTEGER,
     transporation_type: DataTypes.STRING,
-    name: DataTypes.STRING,
+    client_name: DataTypes.STRING,
+    client_email: DataTypes.STRING,
     price: DataTypes.DECIMAL
   }, {
     sequelize,

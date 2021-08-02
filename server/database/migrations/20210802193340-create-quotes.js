@@ -32,7 +32,11 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING
       },
-      name: {
+      client_name: {
+        allowNull: false,
+        type: Sequelize.STRING
+      },
+      client_email: {
         allowNull: false,
         type: Sequelize.STRING
       },
