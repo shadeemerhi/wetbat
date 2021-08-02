@@ -7,8 +7,8 @@ module.exports = {
 				{
 					departure_location: 'Vancouver',
 					destination_location: 'Calgary',
-					departure_datetime: new Date('August 9, 2021 03:30:00'),
-					destination_datetime: new Date('August 9, 2021 04:55:00'),
+					departure_datetime: new Date('August 9, 2021'),
+					return_datetime: new Date('August 17, 2021'),
 					travellers: 4,
 					transporation_type: 'Rental Car',
 					client_name: 'Shadee Merhi',
@@ -20,8 +20,8 @@ module.exports = {
 				{
 					departure_location: 'Las Vegas',
 					destination_location: 'Montreal',
-					departure_datetime: new Date('November 12, 2021 13:37:00'),
-					destination_datetime: new Date('November 12, 2021 15:55:00'),
+					departure_datetime: new Date('November 12, 2021'),
+					return_datetime: new Date('November 27, 2021'),
 					travellers: 7,
 					transporation_type: 'Rental Car',
 					client_name: 'Emily Jones',
