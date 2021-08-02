@@ -1,6 +1,6 @@
 // Custom components
 import QuickQuoteForm from "./QuickQuoteForm/QuickQuoteForm";
-import QuoteList from "./QuoteList/QuoteList";
+import PendingQuotes from "./QuoteList/PendingQuotes";
 
 // Component libraries
 import { Grid } from "@material-ui/core";
@@ -14,7 +14,7 @@ const QuoteSection = () => (
 			<QuickQuoteForm />
 		</Grid>
 		<Grid item xs={7}>
-			<QuoteList />
+			<PendingQuotes />
 		</Grid>
 	</Grid>
 );

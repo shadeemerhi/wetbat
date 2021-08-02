@@ -1,0 +1,14 @@
+.PendingQuotes {
+    display: flex;
+    flex-direction: column;
+}
+
+.PendingQuotesHeader {
+    display: flex;
+    align-items: center;
+}
+
+.PendingQuotesList {
+    display: flex;
+    flex-direction: column;
+}
