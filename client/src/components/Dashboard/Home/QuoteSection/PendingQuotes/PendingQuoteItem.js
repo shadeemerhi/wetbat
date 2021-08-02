@@ -17,7 +17,7 @@ const PendingQuoteItem = ({ quote, selected, dispatch, selectQuote }) => {
 		);
 	};
 
-	const columnKeys = ['id', 'name', 'destination_location', 'price'];
+	const columnKeys = ['id', 'client_name', 'destination_location', 'price'];
 
 	return (
 		<TableRow className={`PendingQuoteItem ${selected ? 'Selected' : ''}`} onClick={() => onSelectQuote(quote)} key={quote.id}>
