@@ -9,42 +9,34 @@ import ReceiptIcon from '@material-ui/icons/Receipt';
 import FlightTakeoffIcon from '@material-ui/icons/FlightTakeoff';
 import FlightIcon from '@material-ui/icons/Flight';
 import FlightLandIcon from '@material-ui/icons/FlightLand';
+import EventIcon from '@material-ui/icons/Event';
+import PeopleOutlineIcon from '@material-ui/icons/PeopleOutline';
 
 // Styles
 import './QuoteDetails.css';
 import '../../../Dashboard.css';
 
-const formatDateTime = dateTimeString => {
-	const dateObject = new Date(Date.parse(dateTimeString));
+const formatDateTime = dateString => {
+	const dateObject = new Date(Date.parse(dateString));
 
-	const time = dateObject.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
 	const date = dateObject.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
-	return {
-		date,
-		time
-	};
+    return date;
 };
 
 const QuoteDetails = ({ selectedQuote, dispatch }) => {
-	const [formattedDateTimes, setFormattedDateTimes] = useState({
-		departure: {
-			date: '',
-			time: ''
-		},
-		arrival: {
-			date: '',
-			time: ''
-		}
+	const [formattedDates, setFormattedDates] = useState({
+        departureDate: '',
+        returnDate: ''
 	});
 
 	useEffect(() => {
-		const departureDateTime = formatDateTime(selectedQuote.departure_datetime);
-		const destinationDateTime = formatDateTime(selectedQuote.destination_datetime);
+		const departureDate = formatDateTime(selectedQuote.departure_datetime);
+		const returnDate = formatDateTime(selectedQuote.return_datetime);
 
-        setFormattedDateTimes({
-            departure: departureDateTime,
-            destination: destinationDateTime
-        })
+		setFormattedDates({
+            departureDate,
+            returnDate
+		});
 	}, [selectedQuote]);
 
 	return (
@@ -52,49 +44,66 @@ const QuoteDetails = ({ selectedQuote, dispatch }) => {
 			<QuoteSectionItemHeader icon={ReceiptIcon} headerText="Quote Details" />
 			{selectedQuote.id ? (
 				<Grid container className="QuoteDetails">
-					<Grid className="FlightInfoItem" item xs={3}>
-						<FlightTakeoffIcon className="QuoteDetailsIcon" />
-						<p className="HeavyText LocationText">{selectedQuote.departure_location}</p>
-                        <p>{formattedDateTimes.departure.date}</p>
-                        <p>{formattedDateTimes.departure.time}</p>
+					<Grid item xs={6}>
+						<Grid container>
+							<Grid item xs={6}>
+								<Grid container className="HeavyText" alignItems="center">
+									<EventIcon className="QuoteDetailsIcon" />
+									<p>{formattedDates.departureDate}</p>
+								</Grid>
+								<Grid container alignItems="center">
+									<FlightTakeoffIcon className="QuoteDetailsIcon" />
+									<p>{selectedQuote.departure_location}</p>
+								</Grid>
+								<Grid container alignItems="center">
+									<FlightLandIcon className="QuoteDetailsIcon" />
+									<p>{selectedQuote.destination_location}</p>
+								</Grid>
+							</Grid>
+							<Grid item xs={6}>
+								<Grid container className="HeavyText" alignItems="center">
+									<EventIcon className="QuoteDetailsIcon" />
+									<p>{formattedDates.returnDate}</p>
+								</Grid>
+								<Grid container alignItems="center">
+									<FlightTakeoffIcon className="QuoteDetailsIcon" />
+									<p>{selectedQuote.destination_location}</p>
+								</Grid>
+								<Grid container alignItems="center">
+									<FlightLandIcon className="QuoteDetailsIcon" />
+									<p>{selectedQuote.departure_location}</p>
+								</Grid>
+							</Grid>
+						</Grid>
 					</Grid>
-					<Grid className="FlightTimeContainer" item xs={1}>
-						<p>Time</p>
-					</Grid>
-					<Grid className="FlightInfoItem" item xs={3}>
-						<FlightLandIcon className="QuoteDetailsIcon" />
-						<p className="HeavyText LocationText">{selectedQuote.destination_location}</p>
-						<p>{formattedDateTimes.destination.date}</p>
-                        <p>{formattedDateTimes.destination.time}</p>
-					</Grid>
-					<Grid className="TravelDetailsContainer" item xs={5}>
-                        <div className="TravelDetailsItem">
-                            <p className="HeavyText">Total Cost</p>
-                            <p>${selectedQuote.price}</p>
-                        </div>
-                        <div className="TravelDetailsItem">
-                            <p className="HeavyText">Client Name</p>
-                            <p>{selectedQuote.client_name}</p>
-                        </div>
-                        <div className="TravelDetailsItem">
-                            <p className="HeavyText">Client Email</p>
-                            <p>{selectedQuote.client_email}</p>
-                        </div>
-                        <div className="TravelDetailsItem">
-                            <p className="HeavyText">Travellers</p>
-                            <p>{selectedQuote.travellers}</p>
-                        </div>
-                        <div className="TravelDetailsItem">
-                            <p className="HeavyText">Transportation</p>
-                            <p>{selectedQuote.transporation_type}</p>
-                        </div>
+					<Grid item xs={6}>
+						<Grid container className="TravelDetailsItem">
+							<p className="HeavyText">Total Cost</p>
+							<p>${selectedQuote.price}</p>
+						</Grid>
+						<Grid container className="TravelDetailsItem">
+							<p className="HeavyText">Client Name</p>
+							<p>{selectedQuote.client_name}</p>
+						</Grid>
+						<Grid container className="TravelDetailsItem">
+							<p className="HeavyText">Client Email</p>
+							<p>{selectedQuote.client_email}</p>
+						</Grid>
+						<Grid container className="TravelDetailsItem">
+							<p className="HeavyText">Travellers</p>
+							<p>{selectedQuote.travellers}</p>
+						</Grid>
+						<Grid container className="TravelDetailsItem">
+							<p className="HeavyText">Transportation</p>
+							<p>{selectedQuote.transporation_type}</p>
+						</Grid>
 					</Grid>
 				</Grid>
 			) : (
-				<div className="NoSelectedQuote">
+				<Grid container className="NoSelectedQuote">
 					<FlightIcon className="QuoteDetailsIcon NoSelectedQuote" />
 					<p className="NoSelectedQuoteText">Select a quote to view details</p>
-				</div>
+				</Grid>
 			)}
 		</div>
 	);

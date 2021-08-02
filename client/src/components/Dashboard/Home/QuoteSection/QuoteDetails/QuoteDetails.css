@@ -41,6 +41,7 @@
 .TravelDetailsItem {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     width: 100%;
 }
 
@@ -58,11 +59,10 @@
 }
 
 .QuoteDetailsIcon {
-    font-size: 60pt !important;
-    color: rgb(161, 161, 161);
+    color: rgb(216, 216, 216);
 }
 
 .NoSelectedQuote .QuoteDetailsIcon {
-    color: rgb(216, 216, 216);
+    font-size: 60pt !important;
 }
 
