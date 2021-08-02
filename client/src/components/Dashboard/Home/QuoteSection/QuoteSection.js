@@ -1,22 +1,37 @@
+import { useContext } from 'react';
+
 // Custom components
-import QuickQuoteForm from "./QuickQuoteForm/QuickQuoteForm";
-import PendingQuotes from "./QuoteList/PendingQuotes";
+import QuickQuoteForm from './QuickQuoteForm/QuickQuoteForm';
+import PendingQuotes from './PendingQuotes/PendingQuotes';
+import QuoteDetails from './QuoteDetails/QuoteDetails';
+
+// Contexts
+import { QuoteContext } from '../../../../contexts/QuoteContext';
 
 // Component libraries
-import { Grid } from "@material-ui/core";
+import { Grid } from '@material-ui/core';
 
 // Styles
 import './QuoteSection.css';
 
-const QuoteSection = () => (
-	<Grid container>
-		<Grid item xs={5}>
-			<QuickQuoteForm />
+const QuoteSection = () => {
+	const { quoteState, dispatch, selectQuote } = useContext(QuoteContext);
+
+	return (
+		<Grid container>
+			<Grid container direction="row">
+				<Grid item xs={5}>
+					<QuickQuoteForm dispatch={dispatch} />
+				</Grid>
+				<Grid item xs={7}>
+					<PendingQuotes quoteState={quoteState} dispatch={dispatch} selectQuote={selectQuote} />
+				</Grid>
+			</Grid>
+			<Grid item xs={12}>
+				<QuoteDetails quoteState={quoteState} dispatch={dispatch} />
+			</Grid>
 		</Grid>
-		<Grid item xs={7}>
-			<PendingQuotes />
-		</Grid>
-	</Grid>
-);
+	);
+};
 
 export default QuoteSection;
