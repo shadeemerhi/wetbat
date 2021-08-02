@@ -19,8 +19,6 @@ const formatDateTime = dateTimeString => {
 
 	const time = dateObject.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
 	const date = dateObject.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
-
-	console.log('HERE IS DATE OBJECT', time, date);
 	return {
 		date,
 		time
@@ -40,7 +38,6 @@ const QuoteDetails = ({ selectedQuote, dispatch }) => {
 	});
 
 	useEffect(() => {
-        // if (!selectedQuote.id) return;
 		const departureDateTime = formatDateTime(selectedQuote.departure_datetime);
 		const destinationDateTime = formatDateTime(selectedQuote.destination_datetime);
 
@@ -55,20 +52,42 @@ const QuoteDetails = ({ selectedQuote, dispatch }) => {
 			<QuoteSectionItemHeader icon={ReceiptIcon} headerText="Quote Details" />
 			{selectedQuote.id ? (
 				<Grid container className="QuoteDetails">
-					<Grid className="FlightInfoItem" item xs={5}>
+					<Grid className="FlightInfoItem" item xs={3}>
 						<FlightTakeoffIcon className="QuoteDetailsIcon" />
 						<p className="LocationText">{selectedQuote.departure_location}</p>
                         <p>{formattedDateTimes.departure.date}</p>
                         <p>{formattedDateTimes.departure.time}</p>
 					</Grid>
-					<Grid className="FlightTimeContainer" item xs={2}>
-						<p>Flight Time</p>
+					<Grid className="FlightTimeContainer" item xs={1}>
+						<p>Time</p>
 					</Grid>
-					<Grid className="FlightInfoItem" item xs={5}>
+					<Grid className="FlightInfoItem" item xs={3}>
 						<FlightLandIcon className="QuoteDetailsIcon" />
-						<p className="LocationText">{selectedQuote.destination_location}</p>
+						<p className="HeavyText LocationText">{selectedQuote.destination_location}</p>
 						<p>{formattedDateTimes.destination.date}</p>
                         <p>{formattedDateTimes.destination.time}</p>
+					</Grid>
+					<Grid className="TravelDetailsContainer" item xs={5}>
+                        <div className="TravelDetailsItem">
+                            <p className="HeavyText">Total Cost</p>
+                            <p>${selectedQuote.price}</p>
+                        </div>
+                        <div className="TravelDetailsItem">
+                            <p className="HeavyText">Client Name</p>
+                            <p>{selectedQuote.client_name}</p>
+                        </div>
+                        <div className="TravelDetailsItem">
+                            <p className="HeavyText">Client Email</p>
+                            <p>{selectedQuote.client_email}</p>
+                        </div>
+                        <div className="TravelDetailsItem">
+                            <p className="HeavyText">Travellers</p>
+                            <p>{selectedQuote.travellers}</p>
+                        </div>
+                        <div className="TravelDetailsItem">
+                            <p className="HeavyText">Transportation</p>
+                            <p>{selectedQuote.transporation_type}</p>
+                        </div>
 					</Grid>
 				</Grid>
 			) : (
