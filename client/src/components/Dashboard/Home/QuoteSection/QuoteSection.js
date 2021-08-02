@@ -28,7 +28,7 @@ const QuoteSection = () => {
 				</Grid>
 			</Grid>
 			<Grid item xs={12}>
-				<QuoteDetails quoteState={quoteState} dispatch={dispatch} />
+				<QuoteDetails selectedQuote={quoteState.selectedQuote} dispatch={dispatch} />
 			</Grid>
 		</Grid>
 	);

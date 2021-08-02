@@ -6,6 +6,10 @@
     margin: 10px;
 }
 
+.HeavyText {
+    font-weight: 500;
+}
+
 .FlightInfoItem {
     display: flex;
     flex-direction: column;
@@ -15,7 +19,7 @@
 }
 
 .LocationText {
-    font-weight: 500;
+    /* font-weight: 500; */
     margin-bottom: 10px;
 }
 
@@ -27,6 +31,19 @@
     color: grey;
     align-items: center;
 }
+
+.TravelDetailsContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.TravelDetailsItem {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
 
 .NoSelectedQuoteText {
     color: rgb(182, 182, 182);

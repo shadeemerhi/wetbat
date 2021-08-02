@@ -10,7 +10,7 @@ const SideNav = () => {
 	return (
 		<div className="SideNav">
 			<Link to='/' className="SideNavItemLink">
-				<div className="SideNavItem">
+				<div className="SideNavItem Selected">
 					<HomeIcon className="SideNavItemLinkIcon" />
 					<p>Home</p>
 				</div>
