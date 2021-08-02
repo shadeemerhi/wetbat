@@ -54,7 +54,7 @@ const QuoteDetails = ({ selectedQuote, dispatch }) => {
 				<Grid container className="QuoteDetails">
 					<Grid className="FlightInfoItem" item xs={3}>
 						<FlightTakeoffIcon className="QuoteDetailsIcon" />
-						<p className="LocationText">{selectedQuote.departure_location}</p>
+						<p className="HeavyText LocationText">{selectedQuote.departure_location}</p>
                         <p>{formattedDateTimes.departure.date}</p>
                         <p>{formattedDateTimes.departure.time}</p>
 					</Grid>
