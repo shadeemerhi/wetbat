@@ -1,0 +1,20 @@
+.QuoteDetails {
+    /* height: 150px; */
+}
+
+.QuoteDetails p {
+    color: rgb(182, 182, 182);
+}
+
+.NoSelectedQuote {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.NoSelectedQuoteIcon {
+    color: rgb(216, 216, 216);
+    font-size: 50pt !important;
+}
