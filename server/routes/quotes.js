@@ -5,7 +5,6 @@ const quoteController = require('../controllers/quoteController');
 
 router.get('/', async (req, res) => {
     const quotes = await quoteController.getAllQuotes();
-    console.log('BACK AFTER CONTROLLER', quotes);
     res.json({ quotes });
 });
 
