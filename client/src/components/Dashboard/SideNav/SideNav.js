@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 const SideNav = () => {
 	return (
 		<div className="SideNav">
-			<Link className="SideNavItemLink">
+			<Link to='/' className="SideNavItemLink">
 				<div className="SideNavItem">
 					<HomeIcon className="SideNavItemLinkIcon" />
 					<p>Home</p>
