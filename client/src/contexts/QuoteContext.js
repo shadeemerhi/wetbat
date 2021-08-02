@@ -4,27 +4,27 @@ import axios from 'axios';
 export const QuoteContext = React.createContext();
 
 // Action creators
-export const setQuotes = quotes => ({
+const setQuotes = quotes => ({
 	type: 'SET_QUOTES',
 	quotes
 });
 
-export const selectQuote = quote => ({
+const selectQuote = quote => ({
 	type: 'SET_SELECTED',
 	quote
 });
 
-export const addQuote = quote => ({
+const addQuote = quote => ({
 	type: 'ADD_QUOTE',
 	quote
 });
 
-export const deleteQuote = index => ({
+const deleteQuote = index => ({
 	type: 'DELETE_QUOTE',
 	index
 });
 
-export const quoteError = text => ({
+const quoteError = text => ({
 	type: 'SET_ERROR',
 	text
 });
@@ -61,7 +61,7 @@ export const QuoteProvider = ({ children }) => {
 
 	const initialState = {
 		quotes: [],
-		selectedQuote: null,
+		selectedQuote: {},
 		error: ''
 	};
 
@@ -87,7 +87,12 @@ export const QuoteProvider = ({ children }) => {
 		<QuoteContext.Provider
 			value={{
 				quoteState,
-				dispatch
+				dispatch,
+				setQuotes,
+				selectQuote,
+				addQuote,
+				deleteQuote,
+				quoteError
 			}}
 		>
 			{children}
