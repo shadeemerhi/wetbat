@@ -1,8 +1,34 @@
 .QuoteDetails {
-    /* height: 150px; */
+    padding: 10px;
 }
 
 .QuoteDetails p {
+    margin: 10px;
+}
+
+.FlightInfoItem {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.LocationText {
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.FlightTimeContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 10pt;
+    color: grey;
+    align-items: center;
+}
+
+.NoSelectedQuoteText {
     color: rgb(182, 182, 182);
 }
 
@@ -14,7 +40,12 @@
     padding: 10px;
 }
 
-.NoSelectedQuoteIcon {
-    color: rgb(216, 216, 216);
-    font-size: 50pt !important;
+.QuoteDetailsIcon {
+    font-size: 60pt !important;
+    color: rgb(161, 161, 161);
 }
+
+.NoSelectedQuote .QuoteDetailsIcon {
+    color: rgb(216, 216, 216);
+}
+
