@@ -1,0 +1,20 @@
+.PendingQuoteItem {
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.PendingQuoteItem:hover .PendingQuoteItemCell {
+    background-color: #5BBFBA;
+    color: white;
+}
+
+.Selected .PendingQuoteItemCell {
+    background-color: #5BBFBA;
+    color: white;
+}
+
+.PendingQuoteItemCell {
+    border-bottom: none !important;
+    border-top: none !important;
+}
+
