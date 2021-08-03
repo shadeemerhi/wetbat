@@ -1,13 +1,13 @@
 export const DEFAULT_FORM = {
-	departureLocation: null,
+	departureLocation: '',
 	departureDate: new Date().toJSON(),
-	destinationLocation: null,
+	destinationLocation: '',
 	returnDate: new Date().toJSON(),
-	numberOfTravellers: null,
+	numberOfTravellers: 1,
 	clientName: '',
 	clientEmail: '',
 	transportationType: '',
-	price: null
+	price: ''
 };
 
 export const prototypeCities = [

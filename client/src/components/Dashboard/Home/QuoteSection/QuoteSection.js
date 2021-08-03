@@ -15,13 +15,13 @@ import { Grid } from '@material-ui/core';
 import './QuoteSection.css';
 
 const QuoteSection = () => {
-	const { quoteState, dispatch, selectQuote, onCreateQuote } = useContext(QuoteContext);
+	const { quoteState, dispatch, selectQuote, onCreateQuote, setError } = useContext(QuoteContext);
 
 	return (
 		<Grid container>
 			<Grid container direction="row">
 				<Grid item xs={6}>
-					<QuickQuoteForm quoteState={quoteState} onCreateQuote={onCreateQuote} />
+					<QuickQuoteForm quoteState={quoteState} dispatch={dispatch} onCreateQuote={onCreateQuote} setError={setError} />
 				</Grid>
 				<Grid item xs={6}>
 					<PendingQuotes quoteState={quoteState} dispatch={dispatch} selectQuote={selectQuote} />

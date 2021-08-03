@@ -10,7 +10,6 @@ import FlightTakeoffIcon from '@material-ui/icons/FlightTakeoff';
 import FlightIcon from '@material-ui/icons/Flight';
 import FlightLandIcon from '@material-ui/icons/FlightLand';
 import EventIcon from '@material-ui/icons/Event';
-import PeopleOutlineIcon from '@material-ui/icons/PeopleOutline';
 
 // Styles
 import './QuoteDetails.css';
