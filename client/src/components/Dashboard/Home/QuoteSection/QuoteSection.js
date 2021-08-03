@@ -4,6 +4,7 @@ import { useContext } from 'react';
 import QuickQuoteForm from './QuickQuoteForm/QuickQuoteForm';
 import PendingQuotes from './PendingQuotes/PendingQuotes';
 import QuoteDetails from './QuoteDetails/QuoteDetails';
+import Error from '../../../Error';
 
 // Contexts
 import { QuoteContext } from '../../../../contexts/QuoteContext';
@@ -19,9 +20,17 @@ const QuoteSection = () => {
 
 	return (
 		<Grid container>
+			<div className="Error">
+				{quoteState.error && <Error text={quoteState.error} />}
+			</div>
 			<Grid container direction="row">
 				<Grid item xs={6}>
-					<QuickQuoteForm quoteState={quoteState} dispatch={dispatch} onCreateQuote={onCreateQuote} setError={setError} />
+					<QuickQuoteForm
+						quoteState={quoteState}
+						dispatch={dispatch}
+						onCreateQuote={onCreateQuote}
+						setError={setError}
+					/>
 				</Grid>
 				<Grid item xs={6}>
 					<PendingQuotes quoteState={quoteState} dispatch={dispatch} selectQuote={selectQuote} />

@@ -97,7 +97,8 @@ export const QuoteProvider = ({ children }) => {
 	useEffect(() => {
 		const getInitialQuotes = async () => {
 			try {
-				const { data } = await axios.get('/api/quotes');
+				const { data, error } = await axios.get('/api/quotes');
+				if (error) throw new Error(error);
 				if (data.quotes) {
 					dispatch(setQuotes(data.quotes));
 				}
