@@ -6,7 +6,8 @@ export const DEFAULT_FORM = {
 	numberOfTravellers: null,
 	clientName: '',
 	clientEmail: '',
-	transportationType: ''
+	transportationType: '',
+	price: null
 };
 
 export const prototypeCities = [
