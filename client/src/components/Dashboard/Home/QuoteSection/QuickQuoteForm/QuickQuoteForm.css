@@ -2,3 +2,9 @@
     width: 90%;
     margin: 5px !important;
 }
+
+.SubmitButton {
+    background-color: #5BBFBA !important;
+    height: 40px;
+    margin-top: 14px !important;
+}

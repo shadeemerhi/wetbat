@@ -11,7 +11,7 @@ import FastForwardIcon from '@material-ui/icons/FastForward';
 // Styles
 import './QuickQuoteForm.css';
 import '../../../Dashboard.css';
-import { Grid, TextField } from '@material-ui/core';
+import { Grid, TextField, Button } from '@material-ui/core';
 
 // Static imports (prototype data)
 import { DEFAULT_FORM, prototypeCities, prototypeTransportationTypes } from '../../../../../static/prototype';
@@ -20,6 +20,7 @@ const QuickQuoteForm = () => {
 	const [formInputs, setFormInputs] = useState(DEFAULT_FORM);
 
 	const handleChange = ({ target: { name, value } }) => {
+		if (name === 'price' && value < 0) return;
 		setFormInputs({
 			...formInputs,
 			[name]: value
@@ -126,6 +127,31 @@ const QuickQuoteForm = () => {
 								onChange={handleChange}
 								variant="filled"
 							/>
+						</Grid>
+					</Grid>
+					<Grid container>
+						<Grid item xs={6}>
+							<TextField
+								className="FormControl"
+								required
+								id="filled-number"
+								label="Price"
+								name="price"
+								type="number"
+								value={formInputs.price}
+								onChange={handleChange}
+								variant="filled"
+							/>
+						</Grid>
+						<Grid item xs={6}>
+							<Button
+								className="SubmitButton FormControl"
+								type="submit"
+								variant="contained"
+								color="primary"
+							>
+								Create Quote
+							</Button>
 						</Grid>
 					</Grid>
 				</Grid>
