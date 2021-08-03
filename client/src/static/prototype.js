@@ -1,8 +1,8 @@
 export const DEFAULT_FORM = {
 	departureLocation: null,
-	departureDate: new Date(),
+	departureDate: new Date().toJSON(),
 	destinationLocation: null,
-	returnDate: new Date(),
+	returnDate: new Date().toJSON(),
 	numberOfTravellers: null,
 	clientName: '',
 	clientEmail: '',
