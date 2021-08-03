@@ -8,35 +8,35 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      departure_location: {
+      departureLocation: {
         allowNull: false,
         type: Sequelize.STRING
       },
-      destination_location: {
+      destinationLocation: {
         allowNull: false,
         type: Sequelize.STRING
       },
-      departure_datetime: {
+      departureDate: {
         allowNull: false,
         type: Sequelize.DATE
       },
-      return_datetime: {
+      returnDate: {
         allowNull: false,
         type: Sequelize.DATE
       },
-      travellers: {
+      numberOfTravellers: {
         allowNull: false,
         type: Sequelize.INTEGER
       },
-      transporation_type: {
+      transportationType: {
         allowNull: false,
         type: Sequelize.STRING
       },
-      client_name: {
+      clientName: {
         allowNull: false,
         type: Sequelize.STRING
       },
-      client_email: {
+      clientEmail: {
         allowNull: false,
         type: Sequelize.STRING
       },
