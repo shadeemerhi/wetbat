@@ -13,7 +13,7 @@ const DatePicker = ({ name, value, labelText, handleDateChange }) => {
 	};
 	return (
 		<MuiPickersUtilsProvider utils={DateFnsUtils}>
-			<Grid container justify="space-evenly">
+			<Grid container justifyContent="space-evenly">
 				<KeyboardDatePicker
 					required
 					variant="filled"
