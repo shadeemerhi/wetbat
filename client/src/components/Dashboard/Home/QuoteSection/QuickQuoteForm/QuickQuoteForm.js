@@ -3,7 +3,7 @@ import { useState } from 'react';
 // Custom components
 import QuoteSectionItemHeader from '../QuoteSectionItemHeader';
 import DatePicker from './DatePicker';
-import ListSelect from './LocationSelect';
+import ListSelect from './ListSelect';
 
 // Component libraries
 import FastForwardIcon from '@material-ui/icons/FastForward';
@@ -17,7 +17,7 @@ import { Grid, TextField, Button } from '@material-ui/core';
 // Static imports (prototype data)
 import { DEFAULT_FORM, prototypeCities, prototypeTransportationTypes } from '../../../../../static/prototype';
 
-const QuickQuoteForm = ({ quoteState, onCreateQuote }) => {
+const QuickQuoteForm = ({ quoteState, dispatch, onCreateQuote, setError }) => {
 	const [formInputs, setFormInputs] = useState(DEFAULT_FORM);
 
 	const handleChange = ({ target: { name, value } }) => {
@@ -36,7 +36,12 @@ const QuickQuoteForm = ({ quoteState, onCreateQuote }) => {
 	};
 
 	const handleSubmit = event => {
+		dispatch(setError(''));
 		event.preventDefault();
+		if (formInputs.departureLocation === formInputs.destinationLocation) {
+			dispatch(setError('Departure and Destination cities are the same'));
+			return;
+		}
 		onCreateQuote(formInputs);
 	};
 
