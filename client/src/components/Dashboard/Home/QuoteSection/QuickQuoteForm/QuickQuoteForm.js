@@ -7,6 +7,7 @@ import ListSelect from './LocationSelect';
 
 // Component libraries
 import FastForwardIcon from '@material-ui/icons/FastForward';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 // Styles
 import './QuickQuoteForm.css';
@@ -16,7 +17,7 @@ import { Grid, TextField, Button } from '@material-ui/core';
 // Static imports (prototype data)
 import { DEFAULT_FORM, prototypeCities, prototypeTransportationTypes } from '../../../../../static/prototype';
 
-const QuickQuoteForm = () => {
+const QuickQuoteForm = ({ quoteState, onCreateQuote }) => {
 	const [formInputs, setFormInputs] = useState(DEFAULT_FORM);
 
 	const handleChange = ({ target: { name, value } }) => {
@@ -30,13 +31,13 @@ const QuickQuoteForm = () => {
 	const handleDateChange = (name, date) => {
 		setFormInputs({
 			...formInputs,
-			[name]: date
+			[name]: date.toJSON()
 		});
 	};
 
 	const handleSubmit = event => {
 		event.preventDefault();
-		console.log('WE SUBMITTED THE FORM');
+		onCreateQuote(formInputs);
 	};
 
 	return (
@@ -150,7 +151,7 @@ const QuickQuoteForm = () => {
 								variant="contained"
 								color="primary"
 							>
-								Create Quote
+								{quoteState.loading ? <CircularProgress size={30} color="default" /> : 'Create Quote'}
 							</Button>
 						</Grid>
 					</Grid>

@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer } from 'react';
+import React, { useEffect, useReducer, useCallback } from 'react';
 import axios from 'axios';
 
 export const QuoteContext = React.createContext();
@@ -24,12 +24,23 @@ const deleteQuote = index => ({
 	index
 });
 
+const setLoading = status => ({
+	type: 'SET_LOADING',
+	status
+})
+
 const quoteError = text => ({
 	type: 'SET_ERROR',
 	text
 });
 
 export const QuoteProvider = ({ children }) => {
+
+	const onCreateQuote = useCallback(newQuote => {
+		dispatch(setLoading(true));
+		console.log('HERE IS THE NEW QUOTE', newQuote);
+	}, []);
+
 	const quoteReducer = (state, action) => {
 		switch (action.type) {
 			case 'SET_QUOTES':
@@ -49,6 +60,11 @@ export const QuoteProvider = ({ children }) => {
 				};
 			case 'DELETE_QUOTE':
 				return state;
+			case 'SET_LOADING':
+				return {
+					...state,
+					loading: action.status
+				}
 			case 'SET_ERROR':
 				return {
 					...state,
@@ -62,6 +78,7 @@ export const QuoteProvider = ({ children }) => {
 	const initialState = {
 		quotes: [],
 		selectedQuote: {},
+		loading: false,
 		error: ''
 	};
 
@@ -90,7 +107,7 @@ export const QuoteProvider = ({ children }) => {
 				dispatch,
 				setQuotes,
 				selectQuote,
-				addQuote,
+				onCreateQuote,
 				deleteQuote,
 				quoteError
 			}}
