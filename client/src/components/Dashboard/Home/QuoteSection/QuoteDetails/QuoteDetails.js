@@ -30,8 +30,8 @@ const QuoteDetails = ({ selectedQuote, dispatch }) => {
 	});
 
 	useEffect(() => {
-		const departureDate = formatDateTime(selectedQuote.departure_datetime);
-		const returnDate = formatDateTime(selectedQuote.return_datetime);
+		const departureDate = formatDateTime(selectedQuote.departureDate);
+		const returnDate = formatDateTime(selectedQuote.returnDate);
 
 		setFormattedDates({
             departureDate,
@@ -53,11 +53,11 @@ const QuoteDetails = ({ selectedQuote, dispatch }) => {
 								</Grid>
 								<Grid container alignItems="center">
 									<FlightTakeoffIcon className="QuoteDetailsIcon" />
-									<p>{selectedQuote.departure_location}</p>
+									<p>{selectedQuote.departureLocation}</p>
 								</Grid>
 								<Grid container alignItems="center">
 									<FlightLandIcon className="QuoteDetailsIcon" />
-									<p>{selectedQuote.destination_location}</p>
+									<p>{selectedQuote.destinationLocation}</p>
 								</Grid>
 							</Grid>
 							<Grid item xs={6}>
@@ -67,11 +67,11 @@ const QuoteDetails = ({ selectedQuote, dispatch }) => {
 								</Grid>
 								<Grid container alignItems="center">
 									<FlightTakeoffIcon className="QuoteDetailsIcon" />
-									<p>{selectedQuote.destination_location}</p>
+									<p>{selectedQuote.destinationLocation}</p>
 								</Grid>
 								<Grid container alignItems="center">
 									<FlightLandIcon className="QuoteDetailsIcon" />
-									<p>{selectedQuote.departure_location}</p>
+									<p>{selectedQuote.departureLocation}</p>
 								</Grid>
 							</Grid>
 						</Grid>
@@ -83,19 +83,19 @@ const QuoteDetails = ({ selectedQuote, dispatch }) => {
 						</Grid>
 						<Grid container className="TravelDetailsItem">
 							<p className="HeavyText">Client Name</p>
-							<p>{selectedQuote.client_name}</p>
+							<p>{selectedQuote.clientName}</p>
 						</Grid>
 						<Grid container className="TravelDetailsItem">
 							<p className="HeavyText">Client Email</p>
-							<p>{selectedQuote.client_email}</p>
+							<p>{selectedQuote.clientEmail}</p>
 						</Grid>
 						<Grid container className="TravelDetailsItem">
 							<p className="HeavyText">Travellers</p>
-							<p>{selectedQuote.travellers}</p>
+							<p>{selectedQuote.numberOfTravellers}</p>
 						</Grid>
 						<Grid container className="TravelDetailsItem">
 							<p className="HeavyText">Transportation</p>
-							<p>{selectedQuote.transporation_type}</p>
+							<p>{selectedQuote.transportationType}</p>
 						</Grid>
 					</Grid>
 				</Grid>
