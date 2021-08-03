@@ -20,10 +20,10 @@ const QuoteSection = () => {
 	return (
 		<Grid container>
 			<Grid container direction="row">
-				<Grid item xs={5}>
+				<Grid item xs={6}>
 					<QuickQuoteForm dispatch={dispatch} />
 				</Grid>
-				<Grid item xs={7}>
+				<Grid item xs={6}>
 					<PendingQuotes quoteState={quoteState} dispatch={dispatch} selectQuote={selectQuote} />
 				</Grid>
 			</Grid>
