@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer, useCallback } from 'react';
+import React, { useEffect, useReducer } from 'react';
 import axios from 'axios';
 
 export const QuoteContext = React.createContext();
@@ -27,19 +27,29 @@ const deleteQuote = index => ({
 const setLoading = status => ({
 	type: 'SET_LOADING',
 	status
-})
+});
 
-const quoteError = text => ({
+const setError = error => ({
 	type: 'SET_ERROR',
-	text
+	error
 });
 
 export const QuoteProvider = ({ children }) => {
-
-	const onCreateQuote = useCallback(newQuote => {
+	const onCreateQuote = async newQuote => {
 		dispatch(setLoading(true));
-		console.log('HERE IS THE NEW QUOTE', newQuote);
-	}, []);
+
+		try {
+			const {
+				data: { quote, error }
+			} = await axios.post('/api/quotes', { quote: newQuote });
+			dispatch(setLoading(false));
+			if (error) throw new Error(error);
+
+			dispatch(addQuote(quote));
+		} catch (error) {
+			dispatch(setError(error.message));
+		}
+	};
 
 	const quoteReducer = (state, action) => {
 		switch (action.type) {
@@ -64,7 +74,7 @@ export const QuoteProvider = ({ children }) => {
 				return {
 					...state,
 					loading: action.status
-				}
+				};
 			case 'SET_ERROR':
 				return {
 					...state,
@@ -88,13 +98,11 @@ export const QuoteProvider = ({ children }) => {
 		const getInitialQuotes = async () => {
 			try {
 				const { data } = await axios.get('/api/quotes');
-				console.log('AFTER THE API', data);
-
 				if (data.quotes) {
 					dispatch(setQuotes(data.quotes));
 				}
 			} catch (error) {
-				dispatch(quoteError(error.message));
+				dispatch(setError(error.message));
 			}
 		};
 		getInitialQuotes();
@@ -109,7 +117,7 @@ export const QuoteProvider = ({ children }) => {
 				selectQuote,
 				onCreateQuote,
 				deleteQuote,
-				quoteError
+				setError
 			}}
 		>
 			{children}
