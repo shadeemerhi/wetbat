@@ -18,7 +18,7 @@ const Dashboard = () => (
 			</Grid>
 			<Grid item xs={10}>
 				<Switch>
-					<Route path="/" component={Home} />
+					<Route exact path="/" component={Home} />
 				</Switch>
 			</Grid>
 		</Grid>

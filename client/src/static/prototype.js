@@ -10,6 +10,13 @@ export const DEFAULT_FORM = {
 	price: ''
 };
 
+export const sideNavItems = [
+	{
+		title: 'Home',
+		link: '/'
+	}
+]
+
 export const prototypeCities = [
 	{
 		title: 'Vancouver'

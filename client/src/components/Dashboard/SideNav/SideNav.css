@@ -16,6 +16,10 @@
     background-color: rgb(216, 216, 216);
 }
 
+.Selected {
+    background-color: rgb(216, 216, 216);
+}
+
 .SideNavItemLink {
     color: #5F6CAF;
     text-decoration: none;
