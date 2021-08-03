@@ -3,6 +3,7 @@ import { useState } from 'react';
 // Custom components
 import QuoteSectionItemHeader from '../QuoteSectionItemHeader';
 import DatePicker from './DatePicker';
+import ListSelect from './LocationSelect';
 
 // Component libraries
 import FastForwardIcon from '@material-ui/icons/FastForward';
@@ -10,24 +11,15 @@ import FastForwardIcon from '@material-ui/icons/FastForward';
 // Styles
 import './QuickQuoteForm.css';
 import '../../../Dashboard.css';
-import { Button, Grid, TextField, Select, MenuItem, InputLabel, FormControl } from '@material-ui/core';
+import { Grid, TextField } from '@material-ui/core';
 
-
+// Static imports (prototype data)
+import { DEFAULT_FORM, prototypeCities, prototypeTransportationTypes } from '../../../../../static/prototype';
 
 const QuickQuoteForm = () => {
-	const [formInputs, setFormInputs] = useState({
-		departureLocation: null,
-		departureDate: new Date(),
-		destinationLocation: null,
-		returnDate: new Date(),
-		numberOfTravellers: null,
-		clientName: '',
-		clientEmail: '',
-		transportationType: ''
-	});
+	const [formInputs, setFormInputs] = useState(DEFAULT_FORM);
 
 	const handleChange = ({ target: { name, value } }) => {
-		console.log('INSIDE CHANGE', name, value);
 		setFormInputs({
 			...formInputs,
 			[name]: value
@@ -38,65 +30,103 @@ const QuickQuoteForm = () => {
 		setFormInputs({
 			...formInputs,
 			[name]: date
-		})
-	}
+		});
+	};
 
 	const handleSubmit = event => {
 		event.preventDefault();
 		console.log('WE SUBMITTED THE FORM');
 	};
 
-	const [selectedDate, setSelectedDate] = useState(new Date());
-
 	return (
-		<div className="QuickQuoteForm DashboardComponent">
+		<div className="DashboardComponent">
 			<QuoteSectionItemHeader icon={FastForwardIcon} headerText="Quick Quote" />
 			<form style={{ padding: '10px' }} onSubmit={handleSubmit}>
 				<Grid container>
-					<Grid item xs={6}>
-						<FormControl variant="filled" className="FormControl">
-							<InputLabel id="demo-simple-select-label">From</InputLabel>
-							<Select
-								labelId="demo-simple-select-label"
-								id="demo-simple-select"
+					<Grid container>
+						<Grid item xs={6}>
+							<ListSelect
+								list={prototypeCities}
 								name="departureLocation"
 								value={formInputs.departureLocation}
-								onChange={handleChange}
-							>
-								<MenuItem value={10}>Ten</MenuItem>
-								<MenuItem value={20}>Twenty</MenuItem>
-								<MenuItem value={30}>Thirty</MenuItem>
-							</Select>
-						</FormControl>
-						<DatePicker name="departureDate" value={formInputs.departureDate} handleDateChange={handleDateChange} />
+								labelText="From"
+								handleChange={handleChange}
+							/>
+						</Grid>
+						<Grid item xs={6}>
+							<ListSelect
+								list={prototypeCities}
+								name="destinationLocation"
+								value={formInputs.destinationLocation}
+								labelText="Destination"
+								handleChange={handleChange}
+							/>
+						</Grid>
 					</Grid>
-					<Grid item xs={6}>
-						<TextField
-							className="FormControl"
-							required
-							id="outlined-required"
-							name="departureLocation"
-							label="Required"
-							variant="filled"
-							value={formInputs.departureLocation}
-							onChange={handleChange}
+					<Grid container>
+						<Grid item xs={6}>
+							<DatePicker
+								name="departureDate"
+								value={formInputs.departureDate}
+								labelText="Departure Date"
+								handleDateChange={handleDateChange}
 							/>
-						<TextField
-							className="FormControl"
-							required
-							id="outlined-required"
-							label="Required"
-							defaultValue="From"
-							variant="filled"
+						</Grid>
+						<Grid item xs={6}>
+							<DatePicker
+								name="returnDate"
+								value={formInputs.returnDate}
+								labelText="Return Date"
+								handleDateChange={handleDateChange}
 							/>
-						<TextField
-							className="FormControl"
-							required
-							id="outlined-required"
-							label="Required"
-							defaultValue="From"
-							variant="filled"
-						/>
+						</Grid>
+					</Grid>
+					<Grid container>
+						<Grid item xs={6}>
+							<ListSelect
+								list={[1, 2, 3, 4, 5, 6, 7, 8]}
+								name="numberOfTravellers"
+								value={formInputs.numberOfTravellers}
+								labelText="Travellers"
+								handleChange={handleChange}
+							/>
+						</Grid>
+						<Grid item xs={6}>
+							<ListSelect
+								list={prototypeTransportationTypes}
+								name="transportationType"
+								value={formInputs.transportationType}
+								labelText="Transportation"
+								handleChange={handleChange}
+							/>
+						</Grid>
+					</Grid>
+					<Grid container>
+						<Grid item xs={6}>
+							<TextField
+								className="FormControl"
+								required
+								id="outlined-required"
+								name="clientName"
+								label="Client Name"
+								value={formInputs.clientName}
+								onChange={handleChange}
+								variant="filled"
+							/>
+						</Grid>
+						<Grid item xs={6}>
+							<TextField
+								className="FormControl"
+								required
+								id="outlined-required"
+								name="clientEmail"
+								label="Client Email"
+								type="email"
+								value={formInputs.clientEmail}
+								onChange={handleChange}
+								variant="filled"
+							/>
+						</Grid>
 					</Grid>
 				</Grid>
 			</form>
