@@ -16,7 +16,7 @@ const SideNav = () => {
 	return (
 		<div className="SideNav">
 			{sideNavItems.map(item => (
-				<Link to={item.link} onClick={() => setSelected(item.title)} className="SideNavItemLink">
+				<Link key={item.title} to={item.link} onClick={() => setSelected(item.title)} className="SideNavItemLink">
 					<div className={`SideNavItem ${item.title === selected ? 'Selected' : ''}`}>
 						<HomeIcon className="SideNavItemLinkIcon" />
 						<p>{item.title}</p>

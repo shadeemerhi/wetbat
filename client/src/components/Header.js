@@ -2,7 +2,7 @@
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
 // Styles
-import './styles/Header.css';
+import './Header.css';
 
 const Header = () => (
     <div className="Header">
