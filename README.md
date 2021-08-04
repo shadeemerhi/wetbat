@@ -3,7 +3,7 @@
 ## Getting Started
 Install the required modules in both the `client` and `server` directories:
 
-### `npm start`
+### `npm install`
 <br>
 
 ## Available Scripts

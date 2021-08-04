@@ -1,0 +1,10 @@
+.PageInProgress {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    text-align: center;
+}
+
+.PageInProgressIcon {
+    margin-left: 10px;
+}

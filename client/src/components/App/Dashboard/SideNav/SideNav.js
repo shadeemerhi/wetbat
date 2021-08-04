@@ -1,10 +1,7 @@
 import { useState } from 'react';
 
-// Component libraries
-import HomeIcon from '@material-ui/icons/Home';
-
 // Static imports (prototype data)
-import { sideNavItems } from '../../../static/prototype';
+import { sideNavItems } from '../../../../static/prototypeData';
 
 // Styles
 import './SideNav.css';
@@ -18,7 +15,7 @@ const SideNav = () => {
 			{sideNavItems.map(item => (
 				<Link key={item.title} to={item.link} onClick={() => setSelected(item.title)} className="SideNavItemLink">
 					<div className={`SideNavItem ${item.title === selected ? 'Selected' : ''}`}>
-						<HomeIcon className="SideNavItemLinkIcon" />
+						<item.icon />
 						<p>{item.title}</p>
 					</div>
 				</Link>

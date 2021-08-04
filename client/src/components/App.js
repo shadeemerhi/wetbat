@@ -1,6 +1,6 @@
 // Custom components
-import Dashboard from './Dashboard/Dashboard';
-import Header from './Header';
+import Dashboard from './App/Dashboard/Dashboard';
+import Header from './App/Header/Header';
 
 import { QuoteProvider } from '../contexts/QuoteContext';
 

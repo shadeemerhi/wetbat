@@ -4,10 +4,10 @@ import { useContext } from 'react';
 import QuickQuoteForm from './QuickQuoteForm/QuickQuoteForm';
 import PendingQuotes from './PendingQuotes/PendingQuotes';
 import QuoteDetails from './QuoteDetails/QuoteDetails';
-import Error from '../../../Error';
+import Error from '../../../Other/Error';
 
 // Contexts
-import { QuoteContext } from '../../../../contexts/QuoteContext';
+import { QuoteContext } from '../../../../../contexts/QuoteContext';
 
 // Component libraries
 import { Grid } from '@material-ui/core';

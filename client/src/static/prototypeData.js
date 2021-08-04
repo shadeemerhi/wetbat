@@ -1,3 +1,8 @@
+// Component libraries
+import HomeIcon from '@material-ui/icons/Home';
+import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
+import EmojiPeopleIcon from '@material-ui/icons/EmojiPeople';
+
 export const DEFAULT_FORM = {
 	departureLocation: '',
 	departureDate: new Date().toJSON(),
@@ -13,8 +18,19 @@ export const DEFAULT_FORM = {
 export const sideNavItems = [
 	{
 		title: 'Home',
-		link: '/'
-	}
+		link: '/',
+		icon: HomeIcon
+	},
+	{
+		title: 'Quotes',
+		link: '/quotes',
+		icon: AttachMoneyIcon
+	},
+	{
+		title: 'Leads',
+		link: '/leads',
+		icon: EmojiPeopleIcon
+	},
 ]
 
 export const prototypeCities = [
