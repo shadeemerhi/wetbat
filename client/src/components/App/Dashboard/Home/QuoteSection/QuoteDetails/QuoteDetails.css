@@ -1,68 +1,38 @@
 .QuoteDetails {
-    padding: 10px;
+	padding: 10px;
 }
 
 .QuoteDetails p {
-    margin: 10px;
+	margin: 10px;
 }
 
 .HeavyText {
-    font-weight: 500;
-}
-
-.FlightInfoItem {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-}
-
-.LocationText {
-    /* font-weight: 500; */
-    margin-bottom: 10px;
-}
-
-.FlightTimeContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    font-size: 10pt;
-    color: grey;
-    align-items: center;
-}
-
-.TravelDetailsContainer {
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
+	font-weight: 500;
 }
 
 .TravelDetailsItem {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 }
 
-
 .NoSelectedQuoteText {
-    color: rgb(182, 182, 182);
+	color: rgb(182, 182, 182);
 }
 
 .NoSelectedQuote {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 10px;
 }
 
 .QuoteDetailsIcon {
-    color: rgb(216, 216, 216);
+	color: rgb(216, 216, 216);
 }
 
 .NoSelectedQuote .QuoteDetailsIcon {
-    font-size: 60pt !important;
+	font-size: 60pt !important;
 }
 
