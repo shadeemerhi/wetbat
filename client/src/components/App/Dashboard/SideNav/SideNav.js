@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 // Static imports (prototype data)
-import { sideNavItems } from '../../../../static/prototypeData';
+import { sideNavItems } from '../../../../static/prototypeStaticData';
 
 // Styles
 import './SideNav.css';

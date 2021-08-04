@@ -15,7 +15,7 @@ import '../../../Dashboard.css';
 import { Grid, TextField, Button } from '@material-ui/core';
 
 // Static imports (prototype data)
-import { DEFAULT_FORM, prototypeCities, prototypeTransportationTypes } from '../../../../../../static/prototypeData';
+import { DEFAULT_FORM, prototypeCities, prototypeTransportationTypes } from '../../../../../../static/prototypeStaticData';
 
 const QuickQuoteForm = ({ quoteState, dispatch, onCreateQuote, setError }) => {
 	const [formInputs, setFormInputs] = useState(DEFAULT_FORM);
