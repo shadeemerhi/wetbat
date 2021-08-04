@@ -1,9 +1,20 @@
 .QuoteSectionItemHeader {
     display: flex;
+    justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid rgb(238, 238, 238);
     padding: 10px;
     height: 20%;
+}
+
+.TitleContainer {
+    display: flex;
+    align-items: center;
+}
+
+.DeleteIcon {
+	color: rgb(83, 83, 83);
+    cursor: pointer;
 }
 
 .Icon {
