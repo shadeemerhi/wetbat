@@ -19,9 +19,9 @@ const addQuote = quote => ({
 	quote
 });
 
-const deleteQuote = index => ({
+const deleteQuote = quote => ({
 	type: 'DELETE_QUOTE',
-	index
+	quote
 });
 
 const setLoading = status => ({
@@ -51,6 +51,26 @@ export const QuoteProvider = ({ children }) => {
 		}
 	};
 
+	const onDeleteQuote = async quote => {
+		dispatch(setLoading(true));
+
+		try {
+			const {
+				data: { error }
+			} = await axios.delete(`/api/quotes/${quote.id}`);
+			console.log('AFTER DELETING', error);
+			dispatch(setLoading(false));
+			if (error) throw new Error(error);
+			if (quoteState.error) dispatch(setError(''));
+			dispatch(deleteQuote(quote));
+			dispatch(selectQuote({}));
+		} catch (error) {
+			dispatch(setError(error.message));
+			return;
+		}
+		return;
+	};
+
 	const quoteReducer = (state, action) => {
 		switch (action.type) {
 			case 'SET_QUOTES':
@@ -69,7 +89,10 @@ export const QuoteProvider = ({ children }) => {
 					quotes: [...state.quotes, action.quote]
 				};
 			case 'DELETE_QUOTE':
-				return state;
+				return {
+					...state,
+					quotes: [...state.quotes.filter(quote => quote.id !== action.quote.id)]
+				};
 			case 'SET_LOADING':
 				return {
 					...state,
@@ -117,7 +140,7 @@ export const QuoteProvider = ({ children }) => {
 				setQuotes,
 				selectQuote,
 				onCreateQuote,
-				deleteQuote,
+				onDeleteQuote,
 				setError
 			}}
 		>
