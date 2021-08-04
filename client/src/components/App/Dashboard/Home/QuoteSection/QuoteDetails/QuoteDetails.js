@@ -78,7 +78,7 @@ const QuoteDetails = ({ selectedQuote, dispatch }) => {
 					<Grid item xs={6}>
 						<Grid container className="TravelDetailsItem">
 							<p className="HeavyText">Total Cost</p>
-							<p>${selectedQuote.price}</p>
+							<p>${parseFloat(selectedQuote.price).toFixed(2)}</p>
 						</Grid>
 						<Grid container className="TravelDetailsItem">
 							<p className="HeavyText">Client Name</p>

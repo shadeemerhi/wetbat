@@ -12,7 +12,7 @@ const PendingQuoteItem = ({ quote, selected, dispatch, selectQuote }) => {
 	const CellItem = ({ keyName }) => {
 		return (
 			<TableCell className="PendingQuoteItemCell" align="center">
-				{`${keyName === 'price' ? '$' : ''}${quote[keyName]}`}
+				{keyName === 'price' ? `$${parseFloat(quote[keyName]).toFixed(2)}` : quote[keyName]}
 			</TableCell>
 		);
 	};
@@ -20,7 +20,11 @@ const PendingQuoteItem = ({ quote, selected, dispatch, selectQuote }) => {
 	const columnKeys = ['id', 'clientName', 'destinationLocation', 'price'];
 
 	return (
-		<TableRow className={`PendingQuoteItem ${selected ? 'Selected' : ''}`} onClick={() => onSelectQuote(quote)} key={quote.id}>
+		<TableRow
+			className={`PendingQuoteItem ${selected ? 'Selected' : ''}`}
+			onClick={() => onSelectQuote(quote)}
+			key={quote.id}
+		>
 			{columnKeys.map(keyName => (
 				<CellItem key={keyName} keyName={keyName} />
 			))}
