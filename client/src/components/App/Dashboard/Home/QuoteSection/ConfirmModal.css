@@ -1,0 +1,28 @@
+.Modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+}
+
+.Modal:focus {
+    outline: 0;
+}
+
+.ModalContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    padding: 30px;
+}
+
+.ModalContent p {
+    margin-bottom: 20px;
+}
+
+.DeleteButton {
+    height: 40px;
+    width: 90px;
+}
