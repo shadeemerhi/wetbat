@@ -1,5 +1,19 @@
 # Wetbat Travel
 
+## Product Visuals
+### Browsing Quotes on Home Page
+!["Browsing Quotes"](https://github.com/shadeemerhi/wetbat/blob/master/images/browsing_home.gif)
+
+### Selecting Quote Details
+!["Selecting Quote Details"](https://github.com/shadeemerhi/wetbat/blob/master/images/booking_details.gif)
+
+### Creating a Quote
+!["Creating Quote"](https://github.com/shadeemerhi/wetbat/blob/master/images/place_booking.gif)
+
+### Deleting a Quote
+!["Deleting Quote"](https://github.com/shadeemerhi/wetbat/blob/master/images/delete_booking.gif)
+
+
 ## Getting Started
 Install the required modules in both the `client` and `server` directories:
 
@@ -23,7 +37,6 @@ You can create a `PORT` variable within the `.env` file within the `server` dire
 ```
 PORT=8000
 ```
-<br>
 
 ## Setting up the Database
 This project is using [PostgreSQL](https://www.postgresql.org/) in combination with [Sequelize](https://sequelize.org/). After installing PostgreSQL on your machine and installing the required node modules in your cloned repository, you can create the database and user. Then, please place the following environment variables in your `server` `.env` file
