@@ -44,10 +44,11 @@ export const QuoteProvider = ({ children }) => {
 			} = await axios.post('/api/quotes', { quote: newQuote });
 			dispatch(setLoading(false));
 			if (error) throw new Error(error);
-
 			dispatch(addQuote(quote));
+			return;
 		} catch (error) {
 			dispatch(setError(error.message));
+			return;
 		}
 	};
 
@@ -64,11 +65,11 @@ export const QuoteProvider = ({ children }) => {
 			if (quoteState.error) dispatch(setError(''));
 			dispatch(deleteQuote(quote));
 			dispatch(selectQuote({}));
+			return;
 		} catch (error) {
 			dispatch(setError(error.message));
 			return;
 		}
-		return;
 	};
 
 	const quoteReducer = (state, action) => {

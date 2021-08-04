@@ -35,14 +35,15 @@ const QuickQuoteForm = ({ quoteState, dispatch, onCreateQuote, setError }) => {
 		});
 	};
 
-	const handleSubmit = event => {
+	const handleSubmit = async event => {
 		dispatch(setError(''));
 		event.preventDefault();
 		if (formInputs.departureLocation === formInputs.destinationLocation) {
 			dispatch(setError('Departure and Destination cities are the same'));
 			return;
 		}
-		onCreateQuote(formInputs);
+		await onCreateQuote(formInputs);
+		setFormInputs(DEFAULT_FORM);
 	};
 
 	return (
