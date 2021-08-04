@@ -33,7 +33,7 @@ In the `server` directory, please run the following to start the API development
 
 <br>
 
-You can create a `PORT` variable within the `.env` file within the `server` directory
+You can create a `PORT` variable within the `.env` file within the `server` directory. The default port is 8000.
 ```
 PORT=8000
 ```
@@ -43,9 +43,9 @@ This project is using [PostgreSQL](https://www.postgresql.org/) in combination w
 
 ```
 DATABASE_NAME=wetbat
-DATABASE_USER=yourusename
+DATABASE_USER=yourusername
 DATABASE_PASS=password
-DEV_DATABASE_URL=postgres://shadeemerhi:wetbatsm@127.0.0.1:5432/wetbat
+DEV_DATABASE_URL=postgres://yourusername:password@127.0.0.1:5432/wetbat
 ```
 **Note**: These variables are accessed in `./database/config/config.js`
 <br>
@@ -63,7 +63,7 @@ The migrations can be reverted using:
 ### `sequelize-cli db:migrate:undo`
 <br>
 
-**Note**: to use the command `sequelize` rather than `sequelize-cli`, you can install the CLI globally:
+**Optional**: to use the command `sequelize` rather than `sequelize-cli`, you can install the CLI globally:
 ### `npm install -g sequelize-cli`
 <br>
 
