@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 
 // Custom components
 import QuoteSectionItemHeader from '../QuoteSectionItemHeader';
+import ConfirmModal from '../ConfirmModal';
 
 // Component libraries
 import { Grid } from '@material-ui/core';
@@ -19,28 +20,31 @@ const formatDateTime = dateString => {
 	const dateObject = new Date(Date.parse(dateString));
 
 	const date = dateObject.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
-    return date;
+	return date;
 };
 
 const QuoteDetails = ({ selectedQuote, dispatch }) => {
 	const [formattedDates, setFormattedDates] = useState({
-        departureDate: '',
-        returnDate: ''
+		departureDate: '',
+		returnDate: ''
 	});
+
+	const [open, setOpen] = useState(false);
 
 	useEffect(() => {
 		const departureDate = formatDateTime(selectedQuote.departureDate);
 		const returnDate = formatDateTime(selectedQuote.returnDate);
 
 		setFormattedDates({
-            departureDate,
-            returnDate
+			departureDate,
+			returnDate
 		});
 	}, [selectedQuote]);
 
 	return (
 		<div className="DashboardComponent">
-			<QuoteSectionItemHeader icon={ReceiptIcon} headerText="Quote Details" />
+			<ConfirmModal open={open} setOpen={setOpen} />
+			<QuoteSectionItemHeader icon={ReceiptIcon} setOpen={setOpen} headerText="Quote Details" />
 			{selectedQuote.id ? (
 				<Grid container className="QuoteDetails">
 					<Grid item xs={6}>
