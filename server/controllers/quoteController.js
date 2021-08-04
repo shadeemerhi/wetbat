@@ -17,3 +17,16 @@ exports.createQuote = async (req, res) => {
 		res.json({ error: 'Error creating quote' });
 	}
 };
+
+exports.deleteQuote = async (req, res) => {
+	try {
+		const { id } = req.params;
+		return await db.Quote.destroy({
+			where: {
+				id
+			}
+		});
+	} catch (error) {
+		res.json({ error: 'Error deleting quote' });
+	}
+}

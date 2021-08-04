@@ -19,4 +19,13 @@ router.post('/', async (req, res) => {
     }
 });
 
+router.delete('/:id', async(req, res) => {
+    try {
+        await quoteController.deleteQuote(req, res);
+        res.status(200).json({ message: 'Quote successfully deleted' });
+    } catch (error) {
+        res.json({ error: 'Error deleting quote' });
+    }
+})
+
 module.exports = router;
