@@ -59,7 +59,6 @@ export const QuoteProvider = ({ children }) => {
 			const {
 				data: { error }
 			} = await axios.delete(`/api/quotes/${quote.id}`);
-			console.log('AFTER DELETING', error);
 			dispatch(setLoading(false));
 			if (error) throw new Error(error);
 			if (quoteState.error) dispatch(setError(''));
